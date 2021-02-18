@@ -3,6 +3,7 @@
 
 #define V1718_USB_PORT 0
 
+#include "V6534PC.h"
 #include "V6534PB.h"
 #include "V6534PA.h"
 

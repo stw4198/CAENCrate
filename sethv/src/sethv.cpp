@@ -66,6 +66,21 @@ int fullmonitor()
 	  printf("V6534PB  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pb(ch),get_config_voltage_v6534pb(ch),get_voltage_v6534pb(ch),get_svmax_v6534pb(ch),get_current_v6534pb(ch),get_ramp_up_v6534pb(ch), get_ramp_down_v6534pb(ch),stat.c_str());
         }
     }
+  /*for (int ch = 0; ch < 6; ch++) //sethv_C
+    {
+      //if (ch == 1) continue;
+      std::string stat = status(ch,-1);
+      ready = (ch == 1 || !strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF")); //set this condition for 3rd card
+      if (!ready)
+	{
+          num_not_ready++;
+          printf("V6534PC  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pc(ch),get_config_voltage_v6534pc(ch),get_voltage_v6534pc(ch),get_svmax_v6534pc(ch),get_current_v6534pc(ch),get_ramp_up_v6534pc(ch), get_ramp_down_v6534pc(ch),stat.c_str());
+        }
+      else
+	{
+	  printf("V6534PC  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pc(ch),get_config_voltage_v6534pc(ch),get_voltage_v6534pc(ch),get_svmax_v6534pc(ch),get_current_v6534pc(ch),get_ramp_up_v6534pc(ch), get_ramp_down_v6534pc(ch),stat.c_str());
+        }
+    }*/
  
   if (num_not_ready>0) return 1;
   return 0;
@@ -111,6 +126,21 @@ int statusmonitor()
       std::cout << std::endl;
       
     }
+  /*for (int ch = 0; ch < 6; ch++) //sethv_C
+    {
+      std::cout << ",";
+      //if (ch == 1) continue;
+      //std::string stat = status(ch,-1);
+      excellent = statusarray(ch, "C");
+      for (int i = 0; i < 14; i++)
+        {
+          //std::cout << *(excellent + i) << " ";
+          excellentarray[i] = *(excellent + i);
+          std::cout << excellentarray[i] << ",";
+        }
+      std::cout << std::endl;
+      
+    }*/
  
   if (num_not_ready>0) return 1;
   return 0;
@@ -162,7 +192,7 @@ int voltmonitor()
   return 0;
 }
 
-int getconfig()
+int getconfig() //is this function needed for labview control?
 {
   /*
   Used to locate config file
