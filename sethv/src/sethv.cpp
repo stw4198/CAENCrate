@@ -159,7 +159,7 @@ int voltmonitor()
   printf("Board, Ch, ISet, VSet, VMon, SWVMax, IMon, RUp, RDwn, Status\n");
   for (int ch = 0; ch < 6; ch++)
     {
-      std::string stat = status(ch,1);
+      std::string stat = status(ch,1); //have third option of 0 for board C?
       ready = (!strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF") || !strcmp(stat.c_str(),"DISABLED "));
       
       if (!ready)
