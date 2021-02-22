@@ -1,10 +1,3 @@
-Authors: Max Calle, University of Sheffield
-	 Stephen Wilson, University of Sheffield
-
-Emails:  Max Calle | mcalle1@sheffield.ac.uk
-	 Stephen Wilson | swilson8@sheffield.ac.uk
-	 
-
 ################
 After reading this, please read the "HowToBuildApplication" file as the application doesn't come precompiled. Please also read the Read Me file within the sethv folder.
 ################
