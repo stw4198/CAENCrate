@@ -1,9 +1,3 @@
-Originally written by Dr Matt Thiesse, University of Sheffield. Changes and additions made by Max Calle, University of Sheffield.
-
-Emails:
-Max Calle | mcalle1@sheffield.ac.uk
-Stephen Wilson | swilson8@sheffield.ac.uk
-
 # CAENHV
 Control of two V6534P's via command line tools and (optional) simple txt file
 
