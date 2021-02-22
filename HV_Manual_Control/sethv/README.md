@@ -1,5 +1,5 @@
 # CAENHV
-Control of two V6534P's via command line tools and (optional) simple txt file
+Control of three V6534P's via command line tools and (optional) simple txt file
 
 ##### requirements:
 CAENUSBdrvB -- most important, for connecting with the V1718 board
