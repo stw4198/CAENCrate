@@ -8,11 +8,6 @@ CAENComm -- useful to have for communicating with CAEN equipment
 
 
 Important info:
-
--- Most likely, have to do "sudo make; sudo make install" for the CAENUSBdrvB package.
--- Double check the "port number" for the USB connection to the V1718. Would be changed in sethv.h header. Not sure how the number is determined. try "lsusb" and "dmesg | grep -i usb" to look at the options.
--- Double check the address of the boards, set with the turney hex things, and set the values in the board header files.
--- The two cards are labelled in the code as "Card A" and "Card B". This refers to cards given Base addresses "32110000" and "32120000", respectively. To simplify the input slightly, channels on card "B" are referred to as channels 6-11 on inputs. E.G to set the voltage on channel 0 of card B to 200V, the command would be --VSet 6 200
 -- To get a full list of functions, simply open the program (./sethv) without issuing any commands.
 -- The format of an input goes as: ./sethv [command] [optional arguments]
 -- Currently, error codes are displayed when sethv is run. An error code of "Err: 0" means the command has executed successfully.
