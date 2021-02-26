@@ -641,10 +641,6 @@ int main(int argc, char *argv[])
         }
     
     }
-  else if (argc >= 2 && !strcmp(argv[i], "--killall"))
-    {
-      status = killall();
-    }
   else if (argc >= 2 && !strcmp(argv[i], "--SetSWVMax"))
     {
       //Sets a software voltage limit for all channels. Does not allow any voltages above 6000
@@ -670,10 +666,6 @@ int main(int argc, char *argv[])
     {
       //Returns ONLY the status of all channels. Does not return voltage readouts.
       status = statusmonitor();
-    }
-  else if (argc >= 2 && !strcmp(argv[i], "--kill"))
-    {
-      status = killall();
     }
   else if (argc >= 2 && !strcmp(argv[i], "--rampup"))
     {  
@@ -714,7 +706,6 @@ int main(int argc, char *argv[])
       printf("    --SetSWVMax   Sets the software limit of the voltage based on input.\n");
       printf("    --monitor     Read the instantaneous currents/Voltages from VME\n");
       printf("    --statemon    Reads the status of all channels. Used in LabVIEW\n");
-      printf("    --killall     Kill all channels immediately.\n");
       printf("    --rampup      Set ramp up speed (in V/s).\n");
       printf("    --rampdown    Set ramp down speed (in V/s).\n");
       status = 1;
