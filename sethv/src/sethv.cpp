@@ -20,68 +20,6 @@ int init()
   return 1;
 }
 
-int fullmonitor()
-{
-  /*
-  Prints the settings and outputs of all channels and cards, including the statuses
-  originally simply called "monitor()" by Matt, changed it to avoid confusion.
-  Deigned for use in the terminal
-  */
-  if (!init()) return 1;
-  
-  bool ready = true;
-  int num_not_ready = 0;
-  printf("#Board		Ch				ISet				VSet								VMon				SWVMax				IMon					RUp					RDwn				Status\n");
-  for (int ch = 0; ch < 6; ch++)
-    {
-      std::string stat = status(ch,1);
-      ready = (!strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF") || !strcmp(stat.c_str(),"DISABLED "));
-      
-      if (!ready)
-	{
-	  num_not_ready++;
-	  printf("V6534PA  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pa(ch),get_config_voltage_v6534pa(ch),get_voltage_v6534pa(ch),get_svmax_v6534pa(ch),get_current_v6534pa(ch),get_ramp_up_v6534pa(ch), get_ramp_down_v6534pa(ch),stat.c_str());
-	}
-      else
-	{
-	  printf("V6534PA  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pa(ch),get_config_voltage_v6534pa(ch),get_voltage_v6534pa(ch),get_svmax_v6534pa(ch),get_current_v6534pa(ch),get_ramp_up_v6534pa(ch), get_ramp_down_v6534pa(ch),stat.c_str());
-	}    
-    }  
-  for (int ch = 0; ch < 6; ch++)
-    {
-      //if (ch == 1) continue;
-      std::string stat = status(ch,-1);
-      ready = (ch == 1 || !strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF"));
-      if (!ready)
-	{
-          num_not_ready++;
-          printf("V6534PB  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pb(ch),get_config_voltage_v6534pb(ch),get_voltage_v6534pb(ch),get_svmax_v6534pb(ch),get_current_v6534pb(ch),get_ramp_up_v6534pb(ch), get_ramp_down_v6534pb(ch),stat.c_str());
-        }
-      else
-	{
-	  printf("V6534PB  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pb(ch),get_config_voltage_v6534pb(ch),get_voltage_v6534pb(ch),get_svmax_v6534pb(ch),get_current_v6534pb(ch),get_ramp_up_v6534pb(ch), get_ramp_down_v6534pb(ch),stat.c_str());
-        }
-    }
-  /*for (int ch = 0; ch < 6; ch++) //sethv_C
-    {
-      //if (ch == 1) continue;
-      std::string stat = status(ch,-1);
-      ready = (ch == 1 || !strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF")); //set this condition for 3rd card
-      if (!ready)
-	{
-          num_not_ready++;
-          printf("V6534PC  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pc(ch),get_config_voltage_v6534pc(ch),get_voltage_v6534pc(ch),get_svmax_v6534pc(ch),get_current_v6534pc(ch),get_ramp_up_v6534pc(ch), get_ramp_down_v6534pc(ch),stat.c_str());
-        }
-      else
-	{
-	  printf("V6534PC  %i  %6.1f uA	%6.1f V  %6.1f V  %i V  %6.3f uA  %i Vps  %i Vps %s\n",ch, get_config_current_v6534pc(ch),get_config_voltage_v6534pc(ch),get_voltage_v6534pc(ch),get_svmax_v6534pc(ch),get_current_v6534pc(ch),get_ramp_up_v6534pc(ch), get_ramp_down_v6534pc(ch),stat.c_str());
-        }
-    }*/
- 
-  if (num_not_ready>0) return 1;
-  return 0;
-}
-
 int statusmonitor()
 {
   /*
@@ -142,7 +80,7 @@ int statusmonitor()
   return 0;
 }  
 
-int voltmonitor()
+int monitor()
 {
   /*
   Monitors all parameters in comma delimited format
@@ -687,7 +625,7 @@ int main(int argc, char *argv[])
       
       status = SetCurrent((uint32_t)ch, (uint32_t)ISet);
     }
-  else if (argc >= 2 && !strcmp(argv[i], "--Onstate"))
+  else if (argc >= 2 && !strcmp(argv[i], "--Power"))
     {
       //Uses arguments given to individually control the on state of each channel
       int ch = std::atoi(argv[i+1]);
@@ -722,21 +660,16 @@ int main(int argc, char *argv[])
           status = SetVMax(Maximum);
         }
     }
-  else if (argc >= 2 && !strcmp(argv[i], "--voltmon"))
+  else if (argc >= 2 && !strcmp(argv[i], "--monitor"))
     {
       //Used in labview program.
       //Returns voltages, currents of channels only. Does not return status.
-      status = voltmonitor();
+      status = monitor();
     }
-  else if (argc >= 2 && !strcmp(argv[i], "--statmon"))
+  else if (argc >= 2 && !strcmp(argv[i], "--statemon"))
     {
       //Returns ONLY the status of all channels. Does not return voltage readouts.
       status = statusmonitor();
-    }
-  else if (argc >= 2 && !strcmp(argv[i], "--fullmon"))
-    {
-      //Reads all parameters from the VME crate. Combines voltmon and statmon.
-      status = fullmonitor();
     }
   else if (argc >= 2 && !strcmp(argv[i], "--kill"))
     {
@@ -774,15 +707,13 @@ int main(int argc, char *argv[])
       printf("                  Usage: --VSet ch Voltage\n");
       printf("    --ISet        Sets Current of a single channel.\n");
       printf("                  Usage: --ISet ch Current\n");
-      printf("    --Onstate     Turns individual Channels on or off.\n");
-      printf("                  Usages: --Onstate ch \"On\"/\"Off\" (no quotes)\n");
+      printf("    --power     Turns individual Channels on or off.\n");
+      printf("                  Usages: --power ch \"On\"/\"Off\" (no quotes) or 1/0\n");
       printf("      Note:       channels 6-11 are interpreted as channels 0-5 on the\n");
-      printf("                  Second HV card at Base Address 32120000\n");
+      printf("                  second HV card at Base Address 32120000, channels 12-17 are on third card at 32130000\n");
       printf("    --SetSWVMax   Sets the software limit of the voltage based on input.\n");
-      printf("    --voltmon     Read the instantaneous currents/Voltages from VME\n");
+      printf("    --monitor     Read the instantaneous currents/Voltages from VME\n");
       printf("    --statemon    Reads the status of all channels. Used in LabVIEW\n");
-      printf("    --fullmon     Reads all instantaneous Parameters (status + voltages) from VME\n");
-      printf("                  (e.g. voltage, current, etc.).\n");
       printf("    --killall     Kill all channels immediately.\n");
       printf("    --rampup      Set ramp up speed (in V/s).\n");
       printf("    --rampdown    Set ramp down speed (in V/s).\n");
