@@ -24,23 +24,16 @@
 extern uint32_t hv_data;
 extern int32_t handle;
 extern std::vector<int> enable_channel;
-extern std::string config_file;
 
 int init();
 std::string status(int ch, int board);
 std::string * statusarray(int ch, std::string board);
-int setconfig();
-int powerdown();
-int powerup();
-int getconfig();
-int monitor();
-int stringmonitor();
 int rampup(int speed);
 int rampdown(int speed);
 int OnOff(uint32_t chnum, bool OnOff);
 int SetVoltage(uint32_t chnum, uint32_t VSet);
 int SetCurrent(uint32_t chnum, uint32_t ISet);
-int VoltageMonitor(uint32_t chnum);
+int monitor(uint32_t chnum);
 int CurrentMonitor(uint32_t chnum);
 int SetVMax(uint32_t SwVMax);
 
