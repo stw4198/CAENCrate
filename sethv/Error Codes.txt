@@ -5,5 +5,5 @@
 -2	VME bus error during the cycle
 -3	Communication Error
 -4	Generic Error
--5	Invalid Parameter (such as trying to set boltage instead of voltage)
+-5	Invalid Parameter
 
