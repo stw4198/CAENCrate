@@ -625,7 +625,7 @@ int main(int argc, char *argv[])
       
       status = SetCurrent((uint32_t)ch, (uint32_t)ISet);
     }
-  else if (argc >= 2 && !strcmp(argv[i], "--Power"))
+  else if (argc >= 2 && !strcmp(argv[i], "--power"))
     {
       //Uses arguments given to individually control the on state of each channel
       int ch = std::atoi(argv[i+1]);
