@@ -34,12 +34,10 @@ int statusmonitor()
   std::string * excellent;//Statusarray returns a pointer to an array
   for (int ch = 0; ch < 6; ch++)
     {
-      //std::string stat = status(ch,1);
       std::cout<< ",";
       excellent = statusarray(ch, "A");//Set Pointer to location of status array
       for (int i = 0; i < 14; i++)
         {
-          //std::cout << *(excellent + i) << ",";
           excellentarray[i] = *(excellent + i);//Dereference pointer at array index location in memory
           std::cout << excellentarray[i] << ",";
         }
@@ -48,27 +46,21 @@ int statusmonitor()
   for (int ch = 0; ch < 6; ch++)
     {
       std::cout << ",";
-      //if (ch == 1) continue;
-      //std::string stat = status(ch,-1);
       excellent = statusarray(ch, "B");
       for (int i = 0; i < 14; i++)
         {
-          //std::cout << *(excellent + i) << " ";
           excellentarray[i] = *(excellent + i);
           std::cout << excellentarray[i] << ",";
         }
       std::cout << std::endl;
       
     }
-  for (int ch = 0; ch < 6; ch++) //sethv_C
+  for (int ch = 0; ch < 6; ch++)
     {
       std::cout << ",";
-      //if (ch == 1) continue;
-      //std::string stat = status(ch,-1);
       excellent = statusarray(ch, "C");
       for (int i = 0; i < 14; i++)
         {
-          //std::cout << *(excellent + i) << " ";
           excellentarray[i] = *(excellent + i);
           std::cout << excellentarray[i] << ",";
         }
@@ -108,7 +100,6 @@ int monitor()
     }  
   for (int ch = 0; ch < 6; ch++)
     {
-      //if (ch == 1) continue;
       std::string stat = status(ch,-1);
       ready = (ch == 1 || !strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF"));
       if (!ready)
@@ -123,7 +114,6 @@ int monitor()
     }
   for (int ch = 0; ch < 6; ch++)
     {
-      //if (ch == 1) continue;
       std::string stat = status(ch,0);
       ready = (ch == 1 || !strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF"));
       if (!ready)
@@ -282,7 +272,6 @@ int rampup(int speed)
       if (ret != cvSuccess)
 	{
 	  std::cout << "Err: " << ret << std::endl;
-	  //printf("\nBad ramp up or bad channel\n");
 	  success = false;
 	}
     }
@@ -292,7 +281,6 @@ int rampup(int speed)
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //printf("\nBad ramp up or bad channel\n");
           success = false;
         }
     }
@@ -302,7 +290,6 @@ int rampup(int speed)
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //printf("\nBad ramp up or bad channel\n");
           success = false;
         }
     }
@@ -326,7 +313,6 @@ int rampdown(int speed)
       if (ret != cvSuccess)
 	{
 	  std::cout << "Err: " << ret << std::endl;
-	  //printf("\nBad ramp up or bad channel\n");
 	  success = false;
 	}
     }
@@ -336,7 +322,6 @@ int rampdown(int speed)
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //printf("\nBad ramp up or bad channel\n");
           success = false;
         }
     }
@@ -346,7 +331,6 @@ int rampdown(int speed)
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //printf("\nBad ramp up or bad channel\n");
           success = false;
         }
     }
@@ -370,7 +354,6 @@ int OnOff(uint32_t chnum, bool OnOff)
         if (ret != cvSuccess) // if it doesn't work, print a message saying so
           {
             std::cout << "Err: " << ret << std::endl;
-            //std::cout << "Error enabling channel " << chnum << std::endl;
             success = false; 
           }
       }
@@ -380,7 +363,6 @@ int OnOff(uint32_t chnum, bool OnOff)
         if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //std::cout << "Error enabling channel " << chnum << std::endl;
           success = false;
         }
       }
@@ -390,7 +372,6 @@ int OnOff(uint32_t chnum, bool OnOff)
         if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //std::cout << "Error enabling channel " << chnum << std::endl;
           success = false;
         }
       }
@@ -414,7 +395,6 @@ int OnOff(uint32_t chnum, bool OnOff)
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
-            //std::cout << "Error disabling channel " << chnum << std::endl;
             success = false;
           }
       }
@@ -424,7 +404,6 @@ int OnOff(uint32_t chnum, bool OnOff)
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
-            //std::cout << "Error disabling channel " << chnum << std::endl;
             success = false;
           }
       }
@@ -444,7 +423,6 @@ int SetVoltage(uint32_t chnum, uint32_t VSet)
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
-            //std::cout << "Error setting voltage for channel " << chnum << std::endl;
             success = false;
           }
       }
@@ -454,7 +432,6 @@ int SetVoltage(uint32_t chnum, uint32_t VSet)
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
-            //std::cout << "Error setting voltage for channel " << chnum << std::endl;
             success = false;
           }
       }
@@ -464,7 +441,6 @@ int SetVoltage(uint32_t chnum, uint32_t VSet)
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
-            //std::cout << "Error setting voltage for channel " << chnum << std::endl;
             success = false;
           }
       }
@@ -485,7 +461,6 @@ int SetCurrent(uint32_t chnum, uint32_t ISet)
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //std::cout << "Error setting current on channel " << chnum << std::endl;
           success = false;
         }
     }
@@ -495,7 +470,6 @@ int SetCurrent(uint32_t chnum, uint32_t ISet)
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //std::cout << "Error setting current on channel " << chnum << std::endl;
           success = false;
         }
     }
@@ -505,7 +479,6 @@ int SetCurrent(uint32_t chnum, uint32_t ISet)
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
-          //std::cout << "Error setting current on channel " << chnum << std::endl;
           success = false;
         }
     }
@@ -525,7 +498,6 @@ int SetVMax(uint32_t SwVMax)
       ret = set_svmax_v6534pa(chan,SwVMax);
       if (ret != cvSuccess)
 	{
-	  //std::cout << "Failed to set Sw VMax on board B, ch " << chan << std::endl;
 	  std::cout << "Err: " << ret << std::endl;
 	  success = false;
 	}
@@ -535,7 +507,6 @@ int SetVMax(uint32_t SwVMax)
       ret = set_svmax_v6534pb(chan,SwVMax);
       if (ret != cvSuccess)
         {
-          //std::cout << "Failed to set Sw VMax on board B, ch " << chan << std::endl;
 	  std::cout << "Err: " << ret << std::endl;
           success = false;
         }
@@ -545,7 +516,6 @@ int SetVMax(uint32_t SwVMax)
       ret = set_svmax_v6534pc(chan,SwVMax);
       if (ret != cvSuccess)
         {
-          //std::cout << "Failed to set Sw VMax on board B, ch " << chan << std::endl;
 	  std::cout << "Err: " << ret << std::endl;
           success = false;
         }
@@ -553,51 +523,6 @@ int SetVMax(uint32_t SwVMax)
   if (!success) return 1;
   return 0;
 }
-
-int killall()
-{
-  /*
-  Kills all channels immediately. Should only be used in an emergency.
-  */
-  bool success = true;
-  CVErrorCodes ret;
-  std::cout << "Killing all channels" << std::endl;
-
-  for (int i = 0; i < 6; i++)
-    {
-      ret = kill_channel_v6534pa((uint32_t)i);
-      if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          //std::cout << "Failed to kill channel " << i << " On Board A" << std::endl;
-          success = false;
-        }
-        
-    }
-  for (int i = 0; i < 6; i++)
-    {
-      ret = kill_channel_v6534pb((uint32_t)i);
-      if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          //std::cout << "Failed to kill channel " << i << "On Board B" << std::endl;
-          success = false;
-        }
-    }
-  for (int i = 0; i < 6; i++)
-    {
-      ret = kill_channel_v6534pc((uint32_t)i);
-      if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          //std::cout << "Failed to kill channel " << i << "On Board C" << std::endl;
-          success = false;
-        }
-    }
-  if (!success) return 1;
-  return 0;
-}
-
 
 int main(int argc, char *argv[]) 
 {
