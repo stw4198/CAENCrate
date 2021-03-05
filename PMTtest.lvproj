@@ -60,14 +60,6 @@
 				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
 				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
 			</Item>
-			<Item Name="Clear_Old_Files.vi" Type="VI" URL="../Vis/SubVis/Clear_Old_Files.vi"/>
-			<Item Name="Move_Files.vi" Type="VI" URL="../Vis/SubVis/Move_Files.vi"/>
-			<Item Name="Read_Binary_Wavedump_File.vi" Type="VI" URL="../Vis/SubVis/Read_Binary_Wavedump_File.vi"/>
-			<Item Name="Run.vi" Type="VI" URL="../Vis/SubVis/Run.vi"/>
-			<Item Name="Send_Bash_Command.vi" Type="VI" URL="../Vis/SubVis/Send_Bash_Command.vi"/>
-			<Item Name="Start_Stop.vi" Type="VI" URL="../Vis/SubVis/Start_Stop.vi"/>
-			<Item Name="Write.vi" Type="VI" URL="../Vis/SubVis/Write.vi"/>
-			<Item Name="Write_Bash.vi" Type="VI" URL="../Vis/SubVis/Write_Bash.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="HV_control" Type="EXE">
@@ -85,7 +77,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{5096AA5B-7DDB-11EB-91FF-98E743BCDD6C}</Property>
-				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.build" Type="Int">4</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">HV</Property>
@@ -132,7 +124,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{659481A6-7DDB-11EB-91FF-98E743BCDD6C}</Property>
-				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.build" Type="Int">4</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">read_file</Property>
@@ -179,7 +171,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{251E22F7-7DDB-11EB-91FF-98E743BCDD6C}</Property>
-				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.build" Type="Int">14</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">wavedump</Property>
