@@ -59,6 +59,7 @@
 		</Item>
 		<Item Name="Type Definitions" Type="Folder">
 			<Item Name="UI Data.ctl" Type="VI" URL="../controls/UI Data.ctl"/>
+			<Item Name="wavedump Data.ctl" Type="VI" URL="../controls/wavedump Data.ctl"/>
 		</Item>
 		<Item Name="Vis" Type="Folder">
 			<Item Name="HVSubVis" Type="Folder">
@@ -137,6 +138,12 @@
 				<Item Name="eventvkey.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/eventvkey.ctl"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
+			<Item Name="Clear_Old_Files.vi" Type="VI" URL="../../main/PMT_Testing/Vis/WavedumpSubVis/Clear_Old_Files.vi"/>
+			<Item Name="Create_PMT_Dir.vi" Type="VI" URL="../../main/PMT_Testing/Vis/WavedumpSubVis/Create_PMT_Dir.vi"/>
+			<Item Name="Create_Run_Dir.vi" Type="VI" URL="../../main/PMT_Testing/Vis/WavedumpSubVis/Create_Run_Dir.vi"/>
+			<Item Name="Move_Files.vi" Type="VI" URL="../../main/PMT_Testing/Vis/WavedumpSubVis/Move_Files.vi"/>
+			<Item Name="Send_Bash_Command.vi" Type="VI" URL="../../main/PMT_Testing/Vis/WavedumpSubVis/Send_Bash_Command.vi"/>
+			<Item Name="Write_Bash.vi" Type="VI" URL="../../main/PMT_Testing/Vis/WavedumpSubVis/Write_Bash.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="PMT_Test" Type="EXE">
