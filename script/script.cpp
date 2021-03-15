@@ -15,6 +15,8 @@ int main(int argc, char** argv) {
   shell << "#!/bin/bash\n\n(sleep 3s && echo \"s\" && sleep 3s && echo \"W\" && sleep " << time << "s && echo \"s\" && sleep 3s && echo \"q\") | wavedump";
   shell.close();
 
+  printf("\nBash script written\n");
+
   return 0;
   
 }
