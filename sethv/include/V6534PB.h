@@ -110,7 +110,7 @@
 #define V6534PB_VME_FWREL 0x8120
 
 #define V6534PB_BASE_ADDRESS 0x32120000
-#define V6534PB_CURRENT_RESOLUTION 0.005 /* 5 nA */
+#define V6534PB_CURRENT_RESOLUTION 0.02 /* 20 nA */
 #define V6534PB_VOLTAGE_RESOLUTION 0.1 /* 0.1 V */
 #define V6534PB_TIME_RESOLUTION 0.1 /* 0.1 s */
 #define V6534PB_NUM_CHANNELS 6
@@ -121,6 +121,7 @@
 #include <stdint.h>
 #include "CAENVMElib.h"
 
+float V6534PB_CURRENT_RESOLUTION = 0.02;
 CVErrorCodes write_to_v6534pb(uint32_t vme_addr, uint32_t data);
 CVErrorCodes read_from_v6534pb(uint32_t vme_addr);
 int get_powered_v6534pb(uint32_t ch_num);
