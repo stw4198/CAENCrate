@@ -20,25 +20,19 @@ Important info:
 
 Command List:
 
---VSet        Sets Voltage of a single channel
+--VSet: Sets Voltage of a single channel
 
-              Usage: --VSet ch Voltage
+Usage: --VSet ch Voltage
               
---ISet        Sets Current of a single channel
+--ISet: Sets Current of a single channel
 
-              Usage: --ISet ch Current
+Usage: --ISet ch Current
               
---power       Turns individual Channels on or off
+--power: Turns individual Channels on or off
 
-              Usage: --power ch On/Off
+Usage: --power ch On/Off
               
-  Note:       Channels 6-11 are interpreted as channels 0-5 on the
-  
-              second HV card at Base Address 32120000
-              
-              Channels 12-17 are interpreted as channels 0-5 on the
-              
-              third HV card at Base Address 32130000
+Note: Channels 6-11 are interpreted as channels 0-5 on the second HV card at Base Address 32120000. Channels 12-17 are interpreted as channels 0-5 on the third HV card at Base Address 32130000
               
 --SetSWVMax   Sets the software limit of the voltage based on input
 
@@ -53,6 +47,7 @@ Command List:
 ################
 
 Potential Bug:
+
 ################
 
 
