@@ -30,7 +30,7 @@ Command List:
               
 --power       Turns individual Channels on or off
 
-              Usage: --power ch \"On\"/\"Off\" (no quotes)
+              Usage: --power ch On/Off
               
   Note:       Channels 6-11 are interpreted as channels 0-5 on the
   
