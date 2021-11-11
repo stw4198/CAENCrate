@@ -43,30 +43,6 @@ int statusmonitor()
         }
       std::cout << std::endl;
     }  
-  for (int ch = 0; ch < 6; ch++)
-    {
-      std::cout << ",";
-      excellent = statusarray(ch, "B");
-      for (int i = 0; i < 14; i++)
-        {
-          excellentarray[i] = *(excellent + i);
-          std::cout << excellentarray[i] << ",";
-        }
-      std::cout << std::endl;
-      
-    }
-  for (int ch = 0; ch < 6; ch++)
-    {
-      std::cout << ",";
-      excellent = statusarray(ch, "C");
-      for (int i = 0; i < 14; i++)
-        {
-          excellentarray[i] = *(excellent + i);
-          std::cout << excellentarray[i] << ",";
-        }
-      std::cout << std::endl;
-      
-    }
  
   if (num_not_ready>0) return 1;
   return 0;
@@ -91,41 +67,13 @@ int monitor()
       if (!ready)
 	{
 	  num_not_ready++;
-	  printf("V6534PA, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534pa(ch),get_config_voltage_v6534pa(ch),get_voltage_v6534pa(ch),get_svmax_v6534pa(ch),get_current_v6534pa(ch),get_ramp_up_v6534pa(ch), get_ramp_down_v6534pa(ch),stat.c_str());
+	  printf("V6534P, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534p(ch),get_config_voltage_v6534p(ch),get_voltage_v6534p(ch),get_svmax_v6534p(ch),get_current_v6534p(ch),get_ramp_up_v6534p(ch), get_ramp_down_v6534p(ch),stat.c_str());
 	}
       else
 	{
-	  printf("V6534PA, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534pa(ch),get_config_voltage_v6534pa(ch),get_voltage_v6534pa(ch),get_svmax_v6534pa(ch),get_current_v6534pa(ch),get_ramp_up_v6534pa(ch), get_ramp_down_v6534pa(ch),stat.c_str());
+	  printf("V6534P, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534p(ch),get_config_voltage_v6534p(ch),get_voltage_v6534p(ch),get_svmax_v6534p(ch),get_current_v6534p(ch),get_ramp_up_v6534p(ch), get_ramp_down_v6534p(ch),stat.c_str());
 	}    
     }  
-  for (int ch = 0; ch < 6; ch++)
-    {
-      std::string stat = status(ch,-1);
-      ready = (ch == 1 || !strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF"));
-      if (!ready)
-	{
-          num_not_ready++;
-          printf("V6534PB, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534pb(ch),get_config_voltage_v6534pb(ch),get_voltage_v6534pb(ch),get_svmax_v6534pb(ch),get_current_v6534pb(ch),get_ramp_up_v6534pb(ch), get_ramp_down_v6534pb(ch),stat.c_str());
-        }
-      else
-	{
-	  printf("V6534PB, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534pb(ch),get_config_voltage_v6534pb(ch),get_voltage_v6534pb(ch),get_svmax_v6534pb(ch),get_current_v6534pb(ch),get_ramp_up_v6534pb(ch), get_ramp_down_v6534pb(ch),stat.c_str());
-        }
-    }
-  for (int ch = 0; ch < 6; ch++)
-    {
-      std::string stat = status(ch,0);
-      ready = (ch == 1 || !strcmp(stat.c_str(),"ON ") || !strcmp(stat.c_str(),"OFF"));
-      if (!ready)
-	{
-          num_not_ready++;
-          printf("V6534PC, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534pc(ch),get_config_voltage_v6534pc(ch),get_voltage_v6534pc(ch),get_svmax_v6534pc(ch),get_current_v6534pc(ch),get_ramp_up_v6534pc(ch), get_ramp_down_v6534pc(ch),stat.c_str());
-        }
-      else
-	{
-	  printf("V6534PC, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534pc(ch),get_config_voltage_v6534pc(ch),get_voltage_v6534pc(ch),get_svmax_v6534pc(ch),get_current_v6534pc(ch),get_ramp_up_v6534pc(ch), get_ramp_down_v6534pc(ch),stat.c_str());
-        }
-    }
  
   if (num_not_ready>0) return 1;
   return 0;
@@ -135,47 +83,9 @@ std::string status(int ch, int board)
 {
   std::string full_status;
 
-  if (board == -1)//Board B
+  if (board == 1)//Board A
     {
-      struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534pb(ch);
-      if (stat->ON) full_status+="ON ";
-      if (stat->RAMPUP) full_status+="RAMPUP ";
-      if (stat->RAMPDOWN) full_status+="RAMPDOWN ";
-      if (stat->OVERCURRENT) full_status+="OVERCURRENT ";
-      if (stat->OVERVOLTAGE) full_status+="OVERVOLTAGE ";
-      if (stat->UNDERVOLTAGE) full_status+="UNDERVOLTAGE ";
-      if (stat->MAXV) full_status+="MAXV ";
-      if (stat->MAXI) full_status+="MAXI ";
-      if (stat->TRIP) full_status+="TRIP ";
-      if (stat->OVERPOWER) full_status+="OVERPOWER ";
-      if (stat->OVERTEMPERATURE) full_status+="OVERTEMPERATURE ";
-      if (stat->DISABLED) full_status+="DISABLED ";
-      if (stat->INTERLOCK) full_status+="INTERLOCK ";
-      if (stat->UNCALIBRATED) full_status+="UNCALIBRATED ";
-      if (full_status.length()==0) full_status+="OFF";
-    }
-  else if (board == 1)//Board A
-    {
-      struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534pa(ch);
-      if (stat->ON) full_status+="ON ";
-      if (stat->RAMPUP) full_status+="RAMPUP ";
-      if (stat->RAMPDOWN) full_status+="RAMPDOWN ";
-      if (stat->OVERCURRENT) full_status+="OVERCURRENT ";
-      if (stat->OVERVOLTAGE) full_status+="OVERVOLTAGE ";
-      if (stat->UNDERVOLTAGE) full_status+="UNDERVOLTAGE ";
-      if (stat->MAXV) full_status+="MAXV ";
-      if (stat->MAXI) full_status+="MAXI ";
-      if (stat->TRIP) full_status+="TRIP ";
-      if (stat->OVERPOWER) full_status+="OVERPOWER ";
-      if (stat->OVERTEMPERATURE) full_status+="OVERTEMPERATURE ";
-      if (stat->DISABLED) full_status+="DISABLED ";
-      if (stat->INTERLOCK) full_status+="INTERLOCK ";
-      if (stat->UNCALIBRATED) full_status+="UNCALIBRATED ";
-      if (full_status.length()==0) full_status+="OFF";
-    }
-  else if (board == 0)//Board C
-    {
-      struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534pc(ch);
+      struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534p(ch);
       if (stat->ON) full_status+="ON ";
       if (stat->RAMPUP) full_status+="RAMPUP ";
       if (stat->RAMPDOWN) full_status+="RAMPDOWN ";
@@ -201,7 +111,7 @@ std::string * statusarray(int ch, std::string board)
     std::string* full_status = new std::string[14];
     if (board == "A")
       {
-        struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534pa(ch);
+        struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534p(ch);
         if (stat->ON) full_status[0] = "On";
         if (stat->RAMPUP) full_status[1] = "RAMPUP";
         if (stat->RAMPDOWN) full_status[2] = "RAMPDOWN";
@@ -216,44 +126,7 @@ std::string * statusarray(int ch, std::string board)
         if (stat->DISABLED) full_status[11] = "DISABLED";
         if (stat->INTERLOCK) full_status[12] = "INTERLOCK";
         if (stat->UNCALIBRATED) full_status[13] = "UNCALIBRATED";
-      }
-    else if (board == "B")
-      {
-        struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534pb(ch);
-        if (stat->ON) full_status[0] = "On";
-        if (stat->RAMPUP) full_status[1] = "RAMPUP";
-        if (stat->RAMPDOWN) full_status[2] = "RAMPDOWN";
-        if (stat->OVERCURRENT) full_status[3] = "OVERCURRENT";
-        if (stat->OVERVOLTAGE) full_status[4] = "OVERVOLTAGE";
-        if (stat->UNDERVOLTAGE) full_status[5] = "UNDERVOLTAGE";
-        if (stat->MAXV) full_status[6] = "MAXV";
-        if (stat->MAXI) full_status[7] = "MAXI";
-        if (stat->TRIP) full_status[8] = "TRIP";
-        if (stat->OVERPOWER) full_status[9] = "OVERPOWER";
-        if (stat->OVERTEMPERATURE) full_status[10] = "OVERTEMPERATURE";
-        if (stat->DISABLED) full_status[11] = "DISABLED";
-        if (stat->INTERLOCK) full_status[12] = "INTERLOCK";
-        if (stat->UNCALIBRATED) full_status[13] = "UNCALIBRATED";
-      }
-    else if (board == "C")
-      {
-        struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534pc(ch);
-        if (stat->ON) full_status[0] = "On";
-        if (stat->RAMPUP) full_status[1] = "RAMPUP";
-        if (stat->RAMPDOWN) full_status[2] = "RAMPDOWN";
-        if (stat->OVERCURRENT) full_status[3] = "OVERCURRENT";
-        if (stat->OVERVOLTAGE) full_status[4] = "OVERVOLTAGE";
-        if (stat->UNDERVOLTAGE) full_status[5] = "UNDERVOLTAGE";
-        if (stat->MAXV) full_status[6] = "MAXV";
-        if (stat->MAXI) full_status[7] = "MAXI";
-        if (stat->TRIP) full_status[8] = "TRIP";
-        if (stat->OVERPOWER) full_status[9] = "OVERPOWER";
-        if (stat->OVERTEMPERATURE) full_status[10] = "OVERTEMPERATURE";
-        if (stat->DISABLED) full_status[11] = "DISABLED";
-        if (stat->INTERLOCK) full_status[12] = "INTERLOCK";
-        if (stat->UNCALIBRATED) full_status[13] = "UNCALIBRATED";
-      }
-    
+      } 
 
     return full_status;
   }
@@ -266,27 +139,10 @@ int rampup(int speed)
   if (!init()) return 1;
   CVErrorCodes ret;
   bool success = true;
+
   for (uint32_t chan = 0; chan < 6; chan++)
     {
-      ret = set_ramp_up_v6534pb(chan,(uint32_t)speed);
-      if (ret != cvSuccess)
-	{
-	  std::cout << "Err: " << ret << std::endl;
-	  success = false;
-	}
-    }
-  for (uint32_t chan = 0; chan < 6; chan++)
-    {
-      ret = set_ramp_up_v6534pa(chan,(uint32_t)speed);
-      if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          success = false;
-        }
-    }
-  for (uint32_t chan = 0; chan < 6; chan++)
-    {
-      ret = set_ramp_up_v6534pc(chan,(uint32_t)speed);
+      ret = set_ramp_up_v6534p(chan,(uint32_t)speed);
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
@@ -307,27 +163,10 @@ int rampdown(int speed)
   if (!init()) return 1;
   CVErrorCodes ret;
   bool success = true;
+
   for (uint32_t chan = 0; chan < 6; chan++)
     {
-      ret = set_ramp_down_v6534pb(chan,(uint32_t)speed);
-      if (ret != cvSuccess)
-	{
-	  std::cout << "Err: " << ret << std::endl;
-	  success = false;
-	}
-    }
-  for (uint32_t chan = 0; chan < 6; chan++)
-    {
-      ret = set_ramp_down_v6534pa(chan,(uint32_t)speed);
-      if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          success = false;
-        }
-    }
-  for (uint32_t chan = 0; chan < 6; chan++)
-    {
-      ret = set_ramp_down_v6534pc(chan,(uint32_t)speed);
+      ret = set_ramp_down_v6534p(chan,(uint32_t)speed);
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
@@ -350,38 +189,21 @@ int OnOff(uint32_t chnum, bool OnOff)
   {
     if (chnum < 6) //Channels <6 are in first card
       {
-        ret = enable_channel_v6534pa(chnum); //enables channel in first card
+        ret = enable_channel_v6534p(chnum); //enables channel in first card
         if (ret != cvSuccess) // if it doesn't work, print a message saying so
           {
             std::cout << "Err: " << ret << std::endl;
             success = false; 
           }
       }
-    else if (chnum > 5 && chnum < 12)
-      {
-        ret = enable_channel_v6534pb(chnum-6);
-        if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          success = false;
-        }
-      }
-    else if (chnum > 11 && chnum < 18)
-      {
-        ret = enable_channel_v6534pc(chnum-12);
-        if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          success = false;
-        }
-      }
+
   }
   else
   {
   
     if (chnum < 6)
       {
-        ret = disable_channel_v6534pa(chnum);
+        ret = disable_channel_v6534p(chnum);
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
@@ -389,24 +211,7 @@ int OnOff(uint32_t chnum, bool OnOff)
             success = false;
           }
       }
-    else if (chnum > 5 && chnum < 12)
-      {
-        ret = disable_channel_v6534pb(chnum-6);
-        if (ret != cvSuccess)
-          {
-            std::cout << "Err: " << ret << std::endl;
-            success = false;
-          }
-      }
-    else if (chnum > 11 && chnum < 18)
-      {
-        ret = disable_channel_v6534pc(chnum-12);
-        if (ret != cvSuccess)
-          {
-            std::cout << "Err: " << ret << std::endl;
-            success = false;
-          }
-      }
+
   }
   if (!success) return 1;
   return 0;
@@ -419,31 +224,14 @@ int SetVoltage(uint32_t chnum, uint32_t VSet)
   CVErrorCodes ret;
     if (chnum < 6)
       {
-        ret = set_voltage_v6534pa(chnum, VSet);
+        ret = set_voltage_v6534p(chnum, VSet);
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
             success = false;
           }
       }
-    else if (chnum > 5 && chnum < 12)
-      {
-        ret = set_voltage_v6534pb(chnum - 6, VSet); 
-        if (ret != cvSuccess)
-          {
-            std::cout << "Err: " << ret << std::endl;
-            success = false;
-          }
-      }
-    else if (chnum > 11 && chnum < 18)
-      {
-        ret = set_voltage_v6534pc(chnum - 12, VSet); 
-        if (ret != cvSuccess)
-          {
-            std::cout << "Err: " << ret << std::endl;
-            success = false;
-          }
-      }
+
   if (!success) return 1;
   return 0;
 }
@@ -457,31 +245,14 @@ int SetCurrent(uint32_t chnum, uint32_t ISet)
   
   if (chnum < 6)
     {
-      ret = set_current_v6534pa(chnum, ISet);
+      ret = set_current_v6534p(chnum, ISet);
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
           success = false;
         }
     }
-  else if (chnum > 5 && chnum < 12)
-    {
-      ret = set_current_v6534pb(chnum - 6, ISet);
-      if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          success = false;
-        }
-    }
-  else if (chnum > 11 && chnum < 18)
-    {
-      ret = set_current_v6534pc(chnum - 12, ISet);
-      if (ret != cvSuccess)
-        {
-          std::cout << "Err: " << ret << std::endl;
-          success = false;
-        }
-    }
+
   if (!success) return 1;
   return 0;
 }
@@ -495,31 +266,14 @@ int SetVMax(uint32_t SwVMax)
   
   for (uint32_t chan = 0; chan < 6; chan++)
     {
-      ret = set_svmax_v6534pa(chan,SwVMax);
+      ret = set_svmax_v6534p(chan,SwVMax);
       if (ret != cvSuccess)
 	{
 	  std::cout << "Err: " << ret << std::endl;
 	  success = false;
 	}
     }
-  for (uint32_t chan = 0; chan < 6; chan++)
-    {
-      ret = set_svmax_v6534pb(chan,SwVMax);
-      if (ret != cvSuccess)
-        {
-	  std::cout << "Err: " << ret << std::endl;
-          success = false;
-        }
-    }
-  for (uint32_t chan = 0; chan < 6; chan++)
-    {
-      ret = set_svmax_v6534pc(chan,SwVMax);
-      if (ret != cvSuccess)
-        {
-	  std::cout << "Err: " << ret << std::endl;
-          success = false;
-        }
-    }
+
   if (!success) return 1;
   return 0;
 }

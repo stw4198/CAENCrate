@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Library LVVersion="18008000">
+<Library LVVersion="19008000">
 	<Property Name="Alarm Database Computer" Type="Str">localhost</Property>
 	<Property Name="Alarm Database Name" Type="Str">C__Program_Files__x86__National_Instruments_LabVIEW_2012_data</Property>
 	<Property Name="Alarm Database Path" Type="Str">C:\Program Files (x86)\National Instruments\LabVIEW 2012\data</Property>
@@ -9,8 +9,8 @@
 	<Property Name="Database Path" Type="Str">C:\Program Files (x86)\National Instruments\LabVIEW 2012\data</Property>
 	<Property Name="Enable Alarms Logging" Type="Bool">true</Property>
 	<Property Name="Enable Data Logging" Type="Bool">true</Property>
-	<Property Name="NI.Lib.Icon" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!+!!!!*Q(C=\:5^&lt;JJ"%)&lt;@I#C+UJ%$G)C3&gt;K\!&amp;&lt;D#8-!&amp;Z5&gt;*FR_FG2L2Y#.156K;)B?AS1%I5K3Q4-CTSY;Y)+;*F23?:?$DH:W:B^X6)F6\,&lt;X5Y:+.(L5;P\\OOO[OW-WZ?+?4X2_VXY8,RZU7X[MN60-06V@F^3!_KB-7IZ&lt;`+XYYRJ=;&gt;1OM+`&amp;3_2CP09\R\AD4`3H`:0OT`:=X.`&gt;@^PP^N]0S(0`D[X0"^'T0^G^N&gt;P'10PG:@;&amp;S%?'*"_[YK&lt;1[*(KC*XKC*XKC"XKA"XKA"XKA/\KD/\KD/\KD'\KB'\KB'\KBVY%O&gt;+%,(;3E?&gt;)I+:I53#;$IO1NY5FY%J[%B[^+?"+?B#@B38C9II1HY5FY%J[%BT1F0!F0QJ0Q*$S5KC2:"TI]#1`F&amp;@!%0!&amp;0Q"0QU&amp;)"4Q!1.!M+"U8!5"!-(A+?A#@AY6%"4]!4]!1]!1^B"4Q"4]!4]!1]J.26C5J4"DI]F*($Y`!Y0![0QU.J/4Q/D]0D]$A]N*0$Y`!Y%%Z$JTA)=J+=#=Y8B]@BY5-/D]0D]$A]$A_BOE.?6[&lt;1F)%/D]&amp;D]"A]"I`"1QE:0!;0Q70Q'$S5F=&amp;D]"A]"I`"1SM:0!;0Q7/!'%VJ,[/9E7B--A3$BV=^,6:X+3K*V3'VQ[NW+.5/G^IB5DM=;JOONJFKG[3W_'K,KL:9;IOA^O05I.6AV*KI*:?*WP'_R&gt;@Y#J`D5XS#D`%BXC_J@XHC&lt;L@4&gt;LP6?LX7;L83@$\8&gt;$L6:$,2?$T7=$B5P^]`810P'+=,Y8APT8C?P=*\A]XH.Y0.J\?$WY^@$`M0P=%NPHH`9\!J=Z\IP`1`O"P6U]/[L.&amp;0%@W?JQ!!!!!</Property>
-	<Property Name="NI.Lib.SourceVersion" Type="Int">402685952</Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!+!!!!*Q(C=\:5^&lt;JJ"%)&lt;@I#C+UJ%$G)C3&gt;K\!&amp;&lt;D#8-!&amp;Z5&gt;*FR_FG2L2Y#.156K;)B?AS1%I5K3Q4-CTSY;Y)+;*F23?:?$DH:W:B^X6)F6\,&lt;X5Y:+.(L5;P\\OOO[OW-WZ?+?4X2_VXY8,RZU7X[MN60-06V@F^3!_KB-7IZ&lt;`+XYYRJ=;&gt;1OM+`&amp;3_2CP09\R\AD4`3H`:0OT`:=X.`&gt;@^PP^N]0S(0`D[X0"^'T0^G^N&gt;P'10PG:@;&amp;S%?'*"_[YK&lt;1[*(KC*XKC*XKC"XKA"XKA"XKA/\KD/\KD/\KD'\KB'\KB'\KBVY%O&gt;+%,(;3E?&gt;)I+:I53#;$IO1NY5FY%J[%B[^+?"+?B#@B38C9II1HY5FY%J[%BT1F0!F0QJ0Q*$S5KC2:"TI]#1`F&amp;@!%0!&amp;0Q"0QU&amp;)"4Q!1.!M+"U8!5"!-(A+?A#@AY6%"4]!4]!1]!1^B"4Q"4]!4]!1]J.26C5J4"DI]F*($Y`!Y0![0QU.J/4Q/D]0D]$A]N*0$Y`!Y%%Z$JTA)=J+=#=Y8B]@BY5-/D]0D]$A]$A_BOE.?6[&lt;1F)%/D]&amp;D]"A]"I`"1QE:0!;0Q70Q'$S5F=&amp;D]"A]"I`"1SM:0!;0Q7/!'%VJ,[/9E7B--A3$BV=^,6:X+3K*V3'VQ[NW+.5/G^IB5DM=;JOONJFKG[3W_'K,KL:9;IOA^O05I.6AV*KI*:?*WP'_R&gt;@Y#J`D5XS#D`%BXC_J@XHC&lt;L@4&gt;LP6?LX7;L83@$\8&gt;$L6:$,2?$T7=$B5P^]`810P'+=,Y8APT8C?P=*\A]XH.Y0.J\?$WY^@$`M0P=%NPHH`9\!J=Z\IP`1`O"P6U]/[L.&amp;0%@W?JQ!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">419463168</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
@@ -32,7 +32,7 @@
 	<Property Name="OdbcStringLoggingTableName" Type="Str">NI_VARIABLE_STRING</Property>
 	<Property Name="OdbcUsername" Type="Str"></Property>
 	<Property Name="SaveStatePeriod" Type="UInt">0</Property>
-	<Property Name="Serialized ACL" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!A1%!!!@````]!!".V&lt;H.J:WZF:#"C?82F)'&amp;S=G&amp;Z!!%!!1!!!!A)!!!!#!!!!!!!!!!</Property>
+	<Property Name="Serialized ACL" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!A1%!!!@````]!!".V&lt;H.J:WZF:#"C?82F)'&amp;S=G&amp;Z!!%!!1!!!!A)!!!!#!!!!!!!!!!</Property>
 	<Property Name="Use Data Logging Database" Type="Bool">true</Property>
 	<Item Name="support" Type="Folder">
 		<Item Name="Enqueue Message (Single).vi" Type="VI" URL="../Enqueue Message (Single).vi"/>
