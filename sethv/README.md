@@ -1,5 +1,5 @@
 # CAENHV
-Control of three V6534Ps via command line tools
+Control of V6534P via command line tools
 
 ##### requirements:
 
