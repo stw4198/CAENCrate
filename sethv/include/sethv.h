@@ -3,7 +3,7 @@
 
 #define V1718_USB_PORT 0
 
-#include "V6534P.h"
+#include "V6533N.h"
 
 #include <stdio.h>
 #include <string>

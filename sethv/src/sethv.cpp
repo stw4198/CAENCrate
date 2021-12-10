@@ -67,11 +67,11 @@ int monitor()
       if (!ready)
 	{
 	  num_not_ready++;
-	  printf("V6534P, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534p(ch),get_config_voltage_v6534p(ch),get_voltage_v6534p(ch),get_svmax_v6534p(ch),get_current_v6534p(ch),get_ramp_up_v6534p(ch), get_ramp_down_v6534p(ch),stat.c_str());
+	  printf("V6533N, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6533n(ch),get_config_voltage_v6533n(ch),get_voltage_v6533n(ch),get_svmax_v6533n(ch),get_current_v6533n(ch),get_ramp_up_v6533n(ch), get_ramp_down_v6533n(ch),stat.c_str());
 	}
       else
 	{
-	  printf("V6534P, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6534p(ch),get_config_voltage_v6534p(ch),get_voltage_v6534p(ch),get_svmax_v6534p(ch),get_current_v6534p(ch),get_ramp_up_v6534p(ch), get_ramp_down_v6534p(ch),stat.c_str());
+	  printf("V6533N, %i, %.3fuA, %.3fV, %.3fV, %iV, %.3fuA, %iVps, %iVps, %s,\n",ch, get_config_current_v6533n(ch),get_config_voltage_v6533n(ch),get_voltage_v6533n(ch),get_svmax_v6533n(ch),get_current_v6533n(ch),get_ramp_up_v6533n(ch), get_ramp_down_v6533n(ch),stat.c_str());
 	}    
     }  
  
@@ -85,7 +85,7 @@ std::string status(int ch, int board)
 
   if (board == 1)//Board A
     {
-      struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534p(ch);
+      struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6533n(ch);
       if (stat->ON) full_status+="ON ";
       if (stat->RAMPUP) full_status+="RAMPUP ";
       if (stat->RAMPDOWN) full_status+="RAMPDOWN ";
@@ -111,7 +111,7 @@ std::string * statusarray(int ch, std::string board)
     std::string* full_status = new std::string[14];
     if (board == "A")
       {
-        struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6534p(ch);
+        struct STATUS_REGISTER *stat = (struct STATUS_REGISTER *) get_channel_status_v6533n(ch);
         if (stat->ON) full_status[0] = "On";
         if (stat->RAMPUP) full_status[1] = "RAMPUP";
         if (stat->RAMPDOWN) full_status[2] = "RAMPDOWN";
@@ -142,7 +142,7 @@ int rampup(int speed)
 
   for (uint32_t chan = 0; chan < 6; chan++)
     {
-      ret = set_ramp_up_v6534p(chan,(uint32_t)speed);
+      ret = set_ramp_up_v6533n(chan,(uint32_t)speed);
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
@@ -166,7 +166,7 @@ int rampdown(int speed)
 
   for (uint32_t chan = 0; chan < 6; chan++)
     {
-      ret = set_ramp_down_v6534p(chan,(uint32_t)speed);
+      ret = set_ramp_down_v6533n(chan,(uint32_t)speed);
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
@@ -189,7 +189,7 @@ int OnOff(uint32_t chnum, bool OnOff)
   {
     if (chnum < 6) //Channels <6 are in first card
       {
-        ret = enable_channel_v6534p(chnum); //enables channel in first card
+        ret = enable_channel_v6533n(chnum); //enables channel in first card
         if (ret != cvSuccess) // if it doesn't work, print a message saying so
           {
             std::cout << "Err: " << ret << std::endl;
@@ -203,7 +203,7 @@ int OnOff(uint32_t chnum, bool OnOff)
   
     if (chnum < 6)
       {
-        ret = disable_channel_v6534p(chnum);
+        ret = disable_channel_v6533n(chnum);
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
@@ -224,7 +224,7 @@ int SetVoltage(uint32_t chnum, uint32_t VSet)
   CVErrorCodes ret;
     if (chnum < 6)
       {
-        ret = set_voltage_v6534p(chnum, VSet);
+        ret = set_voltage_v6533n(chnum, VSet);
         if (ret != cvSuccess)
           {
             std::cout << "Err: " << ret << std::endl;
@@ -245,7 +245,7 @@ int SetCurrent(uint32_t chnum, uint32_t ISet)
   
   if (chnum < 6)
     {
-      ret = set_current_v6534p(chnum, ISet);
+      ret = set_current_v6533n(chnum, ISet);
       if (ret != cvSuccess)
         {
           std::cout << "Err: " << ret << std::endl;
@@ -266,7 +266,7 @@ int SetVMax(uint32_t SwVMax)
   
   for (uint32_t chan = 0; chan < 6; chan++)
     {
-      ret = set_svmax_v6534p(chan,SwVMax);
+      ret = set_svmax_v6533n(chan,SwVMax);
       if (ret != cvSuccess)
 	{
 	  std::cout << "Err: " << ret << std::endl;
