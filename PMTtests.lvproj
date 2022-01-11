@@ -43,6 +43,7 @@
 				<Item Name="HV_Onstate_Multi.vi" Type="VI" URL="../Vis/HVSubVis/HV_Onstate_Multi.vi"/>
 				<Item Name="HV_Onstate_Single.vi" Type="VI" URL="../Vis/HVSubVis/HV_Onstate_Single.vi"/>
 				<Item Name="HV_Rampset.vi" Type="VI" URL="../Vis/HVSubVis/HV_Rampset.vi"/>
+				<Item Name="HV_ReadHV.vi" Type="VI" URL="../Vis/HVSubVis/HV_ReadHV.vi"/>
 				<Item Name="HV_SWVMaxSet.vi" Type="VI" URL="../Vis/HVSubVis/HV_SWVMaxSet.vi"/>
 				<Item Name="HV_Status_Main.vi" Type="VI" URL="../Vis/HVSubVis/HV_Status_Main.vi"/>
 				<Item Name="HV_Status_to_Bool.vi" Type="VI" URL="../Vis/HVSubVis/HV_Status_to_Bool.vi"/>
