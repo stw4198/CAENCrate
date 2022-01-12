@@ -24,6 +24,21 @@ int main(int argc, char** argv) {
   return 0;
   
   }
+
+  else if(test == "Gain"){
+  
+  std::string config = "WaveDumpConfig_Gain.txt";
+  
+  std::ofstream shell;
+  shell.open (file);
+  shell << "#!/bin/bash\n\n(sleep 3s && echo \"s\" && sleep 3s && echo \"W\" && sleep " << time << "s && echo \"s\" && sleep 3s && echo \"q\") | wavedump " << config;
+  shell.close();
+
+  printf("\nBash script written\n");
+
+  return 0;
+  
+  }
   
   else{
   
