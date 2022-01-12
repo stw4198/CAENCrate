@@ -54,9 +54,12 @@
 			<Item Name="WavedumpSubVis" Type="Folder">
 				<Item Name="Clear_Old_Files.vi" Type="VI" URL="../Vis/WavedumpSubVis/Clear_Old_Files.vi"/>
 				<Item Name="Create_PMT_Dir.vi" Type="VI" URL="../Vis/WavedumpSubVis/Create_PMT_Dir.vi"/>
+				<Item Name="Create_PMT_Dir_Gain.vi" Type="VI" URL="../Vis/WavedumpSubVis/Create_PMT_Dir_Gain.vi"/>
 				<Item Name="Create_Run_Dir.vi" Type="VI" URL="../Vis/WavedumpSubVis/Create_Run_Dir.vi"/>
+				<Item Name="Create_Run_Dir_Gain.vi" Type="VI" URL="../Vis/WavedumpSubVis/Create_Run_Dir_Gain.vi"/>
 				<Item Name="Find_Binary_Wavedump.vi" Type="VI" URL="../Vis/WavedumpSubVis/Find_Binary_Wavedump.vi"/>
 				<Item Name="Move_Files.vi" Type="VI" URL="../Vis/WavedumpSubVis/Move_Files.vi"/>
+				<Item Name="Move_Files_Gain.vi" Type="VI" URL="../Vis/WavedumpSubVis/Move_Files_Gain.vi"/>
 				<Item Name="Plot.vi" Type="VI" URL="../Vis/WavedumpSubVis/Plot.vi"/>
 				<Item Name="Read_Binary_Wavedump_File.vi" Type="VI" URL="../Vis/WavedumpSubVis/Read_Binary_Wavedump_File.vi"/>
 				<Item Name="Run.vi" Type="VI" URL="../Vis/WavedumpSubVis/Run.vi"/>
